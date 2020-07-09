@@ -17,6 +17,7 @@
          * @param {Object|String} view Field view.
          * @param {Alpaca.Connector} connector Field connector.
          * @param {Function} errorCallback Error callback.
+		 * @test
          */
         constructor: function(domEl, options, viewId, connector, errorCallback) {
 
