@@ -82,6 +82,8 @@ var paths = {
             "src/js/fields/list/ChooserField.js",
 
             "src/js/fields/advanced/AddressField.js",
+            "src/js/fields/advanced/BizonLiveSearch.js",
+            "src/js/fields/advanced/BizonKeyWords.js",
             "src/js/fields/advanced/CKEditorField.js",
             "src/js/fields/advanced/ColorField.js",
             "src/js/fields/advanced/ColorPickerField.js",

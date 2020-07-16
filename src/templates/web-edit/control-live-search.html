@@ -1,0 +1,34 @@
+<script type="text/x-handlebars-template">
+
+	<script>
+		
+	</script>
+	<div class="input--block"
+		onclick="$('#td_relation_create_{{options.relation.type_id}}').show();$('#toggler_relation_edit_{{options.relation.type_id}}').hide();"
+		id="toggler_relation_edit_{{ options.relation.type_id }}">
+		<div class="like_input" id="like_input__{{options.relation.type_id}}">{{ options.placeholder }}</div>
+	</div>
+
+	<div class="input-block block_autocomplete" style="display: none;" id="td_relation_create_{{options.relation.type_id}}">
+
+		<div class="input-block__search">
+			<input class="form-control tokenfileld create_relation " id="input_relation_create_{{ options.relation.type_id }}"
+				data-type_id="{{ options.relation.type_id }}" data-link="https://bizon.help/api/options.relation/save?client_token=token"
+				data-item_hash="{{ options.relation.hash }}" type="text"
+				name="updated_relation[{{options.relation.type_id}}]" />
+
+			<div class="btn_filter"
+				onclick="$('#toggler_relation_edit_{{ options.relation.type_id }}').show();$('#td_relation_create_{{ options.relation.type_id }}').hide();">
+				<i class="fas fa-times"></i>
+			</div>
+
+			<div class="btn_filter" onclick="Alpaca.fieldInstances['{{id}}'].create_table_remove_relation('{{ options.relation.type_id }}')">
+				<i class="fas fa-trash-alt"></i>
+			</div>
+
+			<input type="hidden" id="{{id}}" name="{{ options.relation.name }}" value="{{ options.relation.item_slave_id }}" class="alpaca-control form-control"/>
+
+		</div>
+	</div>
+
+</script>

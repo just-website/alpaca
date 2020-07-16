@@ -1,0 +1,54 @@
+<script type="text/x-handlebars-template">
+
+    <select id="{{id}}" {{#if options.readonly}}readonly="readonly"{{/if}} {{#if options.multiple}}multiple="multiple"{{/if}} {{#if options.size}}size="{{options.size}}"{{/if}} {{#if name}}name="{{name}}"{{/if}}>
+
+    {{#if options.multiple}}
+
+        {{#if options.hideNone}}
+        {{else}}
+        <option value="">{{{options.noneLabel}}}</option>
+        {{/if}}
+
+        {{#each selectOptions}}
+        <option value="{{{value}}}" {{#if selected}}selected="selected"{{/if}}>{{text}}</option>
+        {{/each}}
+
+    {{else}}
+
+        {{#if options.hideNone}}
+        {{else}}
+        <option value="">{{{options.noneLabel}}}</option>
+        {{/if}}
+
+        {{#each selectOptions}}
+        <option value="{{{value}}}" {{#if selected}}selected="selected"{{/if}}>{{text}}</option>
+        {{/each}}
+
+    {{/if}}
+
+	</select>
+	
+	<div class="dropdown icon_dropdown">
+		<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i id="current_remark_status" class="fas fa-question-circle color_danger"></i>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" title="требуется пояснение">
+				<i class="fas fa-question-circle color_danger"></i>
+			</a>
+			<a class="dropdown-item" title="требуется исправление">
+				<i class="fas fa-exclamation-circle color_danger"></i>
+			</a>
+			<a class="dropdown-item" title="замечание отменено">
+				<i class="fas fa-times-circle color_transparent"></i>
+			</a>
+			<a class="dropdown-item" title="замечание исправлено (проверено)">
+				<i class="fas fa-check-circle color_success"></i>
+			</a>
+			<a class="dropdown-item" title="замечание исправлено (не проверено)">
+				<i class="fas fa-check-circle  color_support"></i>
+			</a>
+		</div>
+	</div>
+
+</script>
