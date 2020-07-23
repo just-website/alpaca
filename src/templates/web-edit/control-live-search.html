@@ -1,12 +1,9 @@
 <script type="text/x-handlebars-template">
 
-	<script>
-		
-	</script>
 	<div class="input--block"
 		onclick="$('#td_relation_create_{{options.relation.type_id}}').show();$('#toggler_relation_edit_{{options.relation.type_id}}').hide();"
 		id="toggler_relation_edit_{{ options.relation.type_id }}">
-		<div class="like_input" id="like_input__{{options.relation.type_id}}">{{ options.placeholder }}</div>
+		<div class="like_input" id="like_input__{{options.relation.type_id}}">{{options.relation.subject_name}}</div>
 	</div>
 
 	<div class="input-block block_autocomplete" style="display: none;" id="td_relation_create_{{options.relation.type_id}}">

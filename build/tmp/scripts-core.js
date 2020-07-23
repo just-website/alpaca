@@ -25563,7 +25563,12 @@
 			$(`#input_relation_create_${that.options.relation.type_id}`).tokenfield({
 				autocomplete: {
 					source: function (request, response) {
-						DataProvider.get_data('live-search').then(data => 
+						DataProvider.get_data('form_builder', {
+							command: 'get_related',
+							element_type: 'item',
+							element_id: that.options.relation.type_id,
+							q: request.term
+						}).then(data => 
 						{
 							let goods = Object.entries(data)
 								.map(([index, content]) => 
@@ -25578,7 +25583,7 @@
 						})
 					},
 					appendTo: `#td_relation_create_${that.options.relation.type_id }`,
-					delay: 100
+					delay: 500
 				},
 				showAutocompleteOnFocus: true,
 				limit: 1
@@ -25597,6 +25602,8 @@
 				$(`#td_relation_create_${that.options.relation.type_id}`).hide();
 				that.setValue('');
 			});
+
+			that.setValue($(`#${that.id}`).val())
 	
 			if (jQuery.ui.autocomplete.prototype._resizeMenu)
 			{
@@ -25625,20 +25632,7 @@
          */
         setValue: function(val)
         {
-            if (!val) {
-                return this.base(val);
-            }
-
-            var upperValue = null;
-            if (val && Alpaca.isString(val)) {
-                upperValue = val;
-            }
-
-            if (upperValue != this.getValue()) // jshint ignore:line
-            {
-                this.base(upperValue);
-			}
-			console.log('set value live search');
+			return this.base(val);
         },
 
         /**
